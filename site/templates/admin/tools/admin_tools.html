@@ -1,0 +1,74 @@
+%%includeTemplate /navigation/generic_top.html%%
+<style type="text/css">
+.admin-links {
+	padding-bottom: 24px;
+	text-indent: 12px;
+}
+</style>
+
+<div id="container" class="master">
+	<h2 class="master-header">Admin Tools</h2>
+	<div class="master-box">
+		<div class="master-inner">
+			<table>
+				<tr>
+					<td class="top left">
+
+						<h3>Deliverability</h3>
+						<div class="admin-links">
+							<p><a href="/bin/seed_list">Return Path Seed List</a></p>
+							<p><a href="/bin/admin_rp_api">Return Path API</a> - Refresh Seed Lists or Campaign Previews</p>
+						</div>
+
+						<h3>List Management</h3>
+						<div class="admin-links">
+							<p><a href="/bin/lists?cmd=slid&CSRFChallengeToken=%%$CSRFChallengeToken%%">Special List IDs (SLIDs)</a></p>
+							<p><a href="/bin/update_list_subscribers?realm_id=%%$realm_id%%&CSRFChallengeToken=%%$CSRFChallengeToken%%">Update Subscriber Counts</a> for %%$realm%%.</p>
+						</div>
+
+						<h3>Publishing</h3>
+						<div class="admin-links">
+							<p><a href="/bin/governor_admin">Governor</a></p>
+						</div>
+
+						<h3>System Administration</h3>
+						<div class="admin-links">
+							<p><a href="/flex/system_messages">Announcements</a></p>
+							<p><a href="/bin/cache_status">Cache Status</a></p>
+							<p><a href="/bin/admin_config">Configuration Tool</a></p>
+							<p><a href="/bin/admin_orphan_tasks">Orphan Tasks</a></p>
+							<p><a href="/bin/PlatformDependencies">Platform Dependencies</a> - run platform dependency tests and display results</p>
+							<p><a href="/bin/admin_service_status">Service Status</a></p>
+							<p><a href="/bin/SessionSnoop">Session Snoop</a> - display session information, ability to clear session</p>
+		         			<p><a href="/bin/SystemInfo">System Info</a> - display system properties and information</p>
+							<p><a href="/bin/admin_messages">Admin Messages</a></p>
+							<p><a href="/bin/TrackingEventTypesList">Tracking Event Types - list and seed</a></p>
+						</div>
+
+						<h3>Test Tools</h3>
+						<div class="admin-links">
+							<p><a href="/bin/query_tool">Query Tool</a></p>
+							<p><a href="/bin/admin_httptest">HTTP Test</a></p>
+							<p><a href="/bin/admin_ldap_test">LDAP Test</a></p>
+							<p><a href="/bin/ws_api_tests">WebServices API Test</a></p>
+							<p><a href="/bin/permtest">Permissions Test</a></p>
+							<p><a href="/bin/app_test">List Test</a></p>
+						</div>
+
+						<h3>Misc</h3>
+						<div class="admin-links">
+							<p><a href="/bin/api_setup">API Setup</a></p>
+							<p><a href="/bin/realm_delete">Realm Delete</a></p>
+							<p><a href="/bin/event_macro_manager">Event Macros</a></p>
+						</div>
+
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="master-nav-bar">
+			<input type="button" class="formButton" id="close_button" name="close_button" value="Close" onclick="window.location.href='/bin/front';" />
+		</div>
+	</div>
+</div>
+%%includeTemplate /misc/footer.html%%
