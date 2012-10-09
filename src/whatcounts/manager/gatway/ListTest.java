@@ -1,5 +1,6 @@
 package whatcounts.manager.gatway;
 
+import java.util.Hashtable;
 import java.util.List;
 
 import persist.managers.wc.ListsDTOManager;
@@ -8,6 +9,8 @@ import artamedia.utility.Utility;
 
 public class ListTest {
 
+	//public static Hashtable ht;
+	
 	public static boolean ListLists(int realmId) throws Exception {
 
 		String success = "";
@@ -16,21 +19,26 @@ public class ListTest {
 		// get a list of all the lists that have been defined so far
 		List<ListsDTOWrapper> lists = ldm.loadAll(realmId);
 
-	    if (lists.size() > 0) {
+		if (lists.size() > 0) {
+			System.out.println("....size... " + lists.size());
 			String list_name = "";
+			int list_id;
 			int i = 0;
-			
+		
 			for (ListsDTOWrapper list : lists) {
 				i++;
 				
 				list_name = list.getName();
-				System.out.println(list_name);	
-				return true;
+				list_id = list.getListId();
+				//ht.put(list_name, list_id);
+		
+				System.out.println(".... " + list_name +"-"+list_id);	
 			}
+			return true;
 	    }
-	    if (lists.size() == 0) {
+		if (lists.size() == 0) {
 	    	System.out.println("List is empty,no records");
-	    	return true;
+	    	return false;
 	    }
 		return false;
 
@@ -65,7 +73,6 @@ public class ListTest {
 		return true;
 	}
 	
-	
 	public static boolean ListCreate(int realmId, String name, int type) throws Exception {
 
 		String success = "";
@@ -99,7 +106,6 @@ public class ListTest {
 		}
 
 	}
-	
 	
 	public static boolean ListDelete(int realmId, int listId) throws Exception {
 

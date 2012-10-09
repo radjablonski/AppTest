@@ -29,7 +29,7 @@ public class AppTest {
 	public static int countRow			= 0;
 
     public static void main(String[] args) throws Exception {
-    	
+
     	processCall();
        
     }
@@ -39,15 +39,15 @@ public class AppTest {
     	/*
     	 * Json for list lists currently in db
     	 */
-//    	String json =  
-//    	  	"{"
-//    	   	+"	      	'categoryCall' : 'List',"
-//    	   	+"	      	'testCall' : 'ListLists',"
-//    		+"			'testData' : {"
-//    		+ "				'realm' : 'cobb'," 
-//    	   	+"	        	'realm_id' : '2357'"
-//    		+" 			}"
-//    	   	+"	}";
+    	String json =  
+    	  	"{"
+    	   	+"	      	'categoryCall' : 'List',"
+    	   	+"	      	'testCall' : 'ListLists',"
+    		+"			'testData' : {"
+    		+ "				'realm' : 'cobb'," 
+    	   	+"	        	'realmId' : '2357'"
+    		+" 			}"
+    	   	+"	}";
        	
     	
     	/*
@@ -88,19 +88,18 @@ public class AppTest {
     	 * Json to delete a list
     	 */
 		//int type = 0; //0=Normal/1=Super/2=Seed
-		String json =  
-			"{"
-    	   	+"	      	'categoryCall' : 'List',"
-    	   	+"	      	'testCall' : 'ListCreate',"
-    	   	+"			'testData' : {"
-    		+ "				'realmId' : '2357'," 
-    		+ "				'listId' : '9247'" 
-			+" 			}"
-			+"	}";
+//		String json =  
+//			"{"
+//    	   	+"	      	'categoryCall' : 'List',"
+//    	   	+"	      	'testCall' : 'ListCreate',"
+//    	   	+"			'testData' : {"
+//    		+ "				'realmId' : '2357'," 
+//    		+ "				'listId' : '9247'" 
+//			+" 			}"
+//			+"	}";
 		
 		return json;
     }
-    
     
     public static String[] pocessJSonParser() {
 
@@ -112,19 +111,18 @@ public class AppTest {
 	    	
 			JsonElement jelement = new JsonParser().parse(json);
 			JsonObject  jobject = jelement.getAsJsonObject();
-	
+			
 			categoryCall = jobject.get("categoryCall").toString();
 			testCall = jobject.get("testCall").toString();
 			
-			if (testCall.equals("ListLists") ){
-		    	
+			if (testCall.equals("\"ListLists\"") ){
+
 				jobject = jobject.getAsJsonObject("testData");
 				realm = jobject.get("realm").toString();
 				realmId = jobject.get("realmId").toString();
 				
 			}
-			
-			if (testCall.equals("ListCopy") ){
+			if (testCall.equals("\"ListCopy\"") ){
 		    	
 				jobject = jobject.getAsJsonObject("testData");
 				realm = jobject.get("realm").toString();
@@ -136,7 +134,7 @@ public class AppTest {
 				
 			}
 			
-			if (testCall.equals("ListCreate") ){
+			if (testCall.equals("\"ListCreate\"") ){
 		    	
 				jobject = jobject.getAsJsonObject("testData");
 				realm = jobject.get("realm").toString();
@@ -146,7 +144,7 @@ public class AppTest {
 				
 			}
 			
-			if (testCall.equals("ListDelete") ){
+			if (testCall.equals("\"ListDelete\"") ){
 		    	
 				jobject = jobject.getAsJsonObject("testData");
 				realmId = jobject.get("realmId").toString();
@@ -172,24 +170,23 @@ public class AppTest {
     
     
 	public static Hashtable processCall() {		
-	
-			String jsonParams[] = pocessJSonParser();
 
+		String jsonParams[] = pocessJSonParser();
 			Hashtable ht 		= new Hashtable();
 			categoryCall		= jsonParams[0];
 			testCall 			= jsonParams[1];
-		    realm 				= jsonParams[2];
-		    realmId				= jsonParams[3];
-		    name				= jsonParams[4];
-		    type				= jsonParams[5];
-		    newName				= jsonParams[6];
-		    listId				= jsonParams[7];
+			realm 				= jsonParams[2];
+			realmId				= jsonParams[3];
+			name				= jsonParams[4];
+			type				= jsonParams[5];
+			newName				= jsonParams[6];
+			listId				= jsonParams[7];
 		    
-
 			if (categoryCall.equals("List")){
 				if (testCall.equals("ListLists")){
 					ListTest lt = new ListTest();
 					try {
+		
 						boolean msg = lt.ListLists(Integer.parseInt(realmId));
 						ht.put("LISTLISTS"+countRow , decision(msg));
 						countRow++;
@@ -254,6 +251,11 @@ public class AppTest {
 			return ht;
 	}
 
+	
+	public static void processAPICall(){
+		
+	}
+	
 	
 	public static String decision(boolean msg) {
 		
