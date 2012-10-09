@@ -2,23 +2,6 @@
 
 <link href="/jquery/themes/base/ui.all.css" rel="stylesheet" type="text/css"/>
 
-<style type="text/css">
-.abDefinitionId {
-	display: none;
-}
-
-#copyPopup, #deletePopup, #errorPopup {
-	display: none;
-	visibility: none;
-	text-align: left;
-	border: 1px solid #000;
-	z-index: 9999;
-	background-color: #fff;
-	width: 400px;
-	height: 160px;
-}
-</style>
-
 <script type="text/javascript" src="/jquery/1.8.4/jquery-ui.min.js"></script>
 <script type="text/javascript" src="/jquery/jshashtable-2.1.js"></script>
 
