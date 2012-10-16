@@ -31,7 +31,6 @@ public class ListTest {
 				listName 	= list.getName();
 				listId 	= list.getListId();
 				htList.put(listName, listId);
-	
 			}
 			return true;
 	    }
@@ -101,7 +100,6 @@ public class ListTest {
 			System.out.println("Error: The name " + name + " is already being used by another list. Please select another.");
 			return false;
 		}
-
 	}
 	
 	
@@ -133,7 +131,6 @@ public class ListTest {
 		    	}
 		    	return true;
 	    	}
-	
 			return false;
 	    }
 	    
@@ -142,7 +139,6 @@ public class ListTest {
 	    	return false;
 	    }
 		return false;
-
 	}
 
 }
